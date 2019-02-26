@@ -1,0 +1,55 @@
+html {
+    font-family: Bangers;
+    font-weight: lighter;
+}
+
+.dog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.woof {
+    position: absolute;
+    top: 0;
+    right:0;
+    width: 36px;
+}
+
+.fish {
+    font-size: 40px;
+}
+
+.meow {
+    display: flex;
+    border: 0px solid;
+    background-color: lightgreen;
+    width: 380px;
+    min-height: 300px;
+    padding:20px;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-content: flex-start;
+    border-radius: 10px;
+
+}
+
+
+.cat {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+
+}
+
+.hello{
+    position: relative;
+    border: 0px solid;
+    background-color: lightsalmon;
+    width: 70%;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
