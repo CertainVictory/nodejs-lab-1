@@ -10,15 +10,32 @@ function CartService($http) {
         });
     }
 
-    self.deleteItem = function(item) {
-    
+    self.addItem = function (newItem) {
         return $http({
-            method: "DELETE",
-            url: `cart-items/${item.id}`
-        })
+            method: "POST",
+            url: "/cart-items",
+            data: { ...newItem, price: Number(newItem.price), quantity: Number(newItem.quantity)}
+        });
     }
 
 
+    self.deleteItem = function(id) {
+    
+        return $http({
+            method: "DELETE",
+            url: `cart-items/${id}`
+        })
+    }
+
+    self.updateQty = function(item, newQty) {
+        console.log(item, newQty)
+    return $http({
+        method: "PUT",
+        url: `cart-items/${item.id}`,
+        data: { quantity: newQty }
+
+    })
+}
 }
 
 

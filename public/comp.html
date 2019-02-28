@@ -1,0 +1,20 @@
+<section class="meow">
+    <form ng-submit="$ctrl.addItem(newItem)">
+    <input type="text" ng-model="newItem.product" placeholder="Product">
+    <input type="text" ng-model="newItem.price" placeholder="Price">
+    <input type="text" ng-model="newItem.quantity" placeholder="Quantity">
+    <button>Add Item</button>
+    </form>
+    <section class="cat">
+    <p class="fish">Your Shopping Cart</p>
+    <div class="hello" ng-repeat="item in $ctrl.cartItems track by $index">
+    <img ng-click="$ctrl.removeItem(item.id);" class="woof" src="icons-close.png">
+    <p>Id: {{ item.id }}</p>
+    <p>Product: {{ item.product }}</p>
+    
+    <p>Quantity: <input type="text" ng-model="newQty" ng-blur="$ctrl.increaseQty(item, newQty)" placeholder="{{ item.quantity }}"></p>
+    
+    <p>Price: {{ item.price }}</p>
+    </div>
+    </section>
+    </section>

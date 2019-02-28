@@ -2,32 +2,25 @@
 
 const cart = {
 
-    template: `
-<section class="meow">
-<section class="cat">
-<p class="fish">Your Shopping Cart</p>
-<div class="hello" ng-repeat="item in $ctrl.cartItems track by $index">
-<img ng-click="$ctrl.removeItem(item);" class="woof" src="icons-close.png">
-<p>Id: {{ item.id }}</p>
-<p>Product: {{ item.product }}</p>
-<p>Quantity: {{ item.quantity }}</p>
-<p>Price: {{ item.price }}</p>
-</div>
-</section>
-</section>
-
-    `,
+    templateUrl: `comp.html`,
     controller: ["CartService", function (CartService) {
         const vm = this;
+        // let newQuantity = null;
         function handleResponse(response) {
             vm.cartItems = response.data;
-        };
-        CartService.getAllItems().then(handleResponse);
 
-        vm.removeItem = function(item) {
+        };
+        vm.increaseQty = function (item, newQty) {
+            CartService.updateQty(item, newQty).then(handleResponse)
+        }
+        CartService.getAllItems().then(handleResponse);
+        vm.addItem = function (newItem) {
+            CartService.addItem(newItem).then(handleResponse)
+        };
+        vm.removeItem = function (item) {
             CartService.deleteItem(item).then(handleResponse)
         };
-        
+
     }
 
 
